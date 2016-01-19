@@ -2,14 +2,23 @@ body {
     background-color: #89cff0;
 }
 
-header {
-
-}
-
 div {
     background-color: white;
-    margin: 0.75% 5%;
-    width: 35%;
+    margin: 0.75% 2.5%;
+    width: 70%;
     border-radius: 5px;
 }
+
+.header {
+    background-color: #45b3e7;
+    font-family: sans-serif;
+    width: 75%;
+    text-align: center;
+}
+
+section {
+    float: left;
+}
+
+
 
