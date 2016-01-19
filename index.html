@@ -10,37 +10,29 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
+        var currentIndex = 0;
         
-        
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + '\n' + tweet.created_at + '\n\n');
-            $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
-          $tweet.prependTo($body);
-          index -= 1;
+        function displayStream(start, end) {
+            for (var i=start; i<end; i++) {
+               prependTweet(streams.home[i]); 
+            }
         }
         
-        function displayStream() {
-            var newIndex = streams.home.length-1;
-            var tweet = streams.home[newIndex];
+        function prependTweet(tweet) {
             var $tweet = $('<div></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message + '\n' + tweet.created_at + '\n\n');
             $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
             $tweet.prependTo($body);
         }
-          
-        
-          
-        setInterval(displayStream, 1500);
-        
-        
-          
+				
+        setInterval(function () {
+            displayStream(currentIndex, streams.home.length);  
+            currentIndex = streams.home.length; 
+        } , 100);
           
 
       });
+    
     
 
     </script>
