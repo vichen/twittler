@@ -7,16 +7,17 @@
   </head>
   <body>
       
-    <header>
+    <div class='header'>
     <h1>Twittler</h1>
-    </header>
-      
     <div>
+    
+    <section> 
+    <div class='content'>
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+        var $section = $('body').find('section');
+        $section.html('');
         var currentIndex = 0;
           
           
@@ -24,7 +25,7 @@
             var $tweet = $('<div></div>');
             $tweet.text('\n' + '@' + tweet.user + ': ' + tweet.message + '\n' + tweet.created_at + '\n\n');
             $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
-            $tweet.prependTo($body);
+            $tweet.prependTo($section);
         }
         
           
@@ -45,6 +46,7 @@
     
     </script>
     </div>
+    </section> 
       
   </body>
 </html>
