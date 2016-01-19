@@ -3,27 +3,37 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
+      
+    <header>
+    <h1>Twittler</h1>
+    </header>
+      
+    <div>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
         var currentIndex = 0;
+          
+          
+        function prependTweet(tweet) {
+            var $tweet = $('<div></div>');
+            $tweet.text('\n' + '@' + tweet.user + ': ' + tweet.message + '\n' + tweet.created_at + '\n\n');
+            $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
+            $tweet.prependTo($body);
+        }
         
+          
         function displayStream(start, end) {
             for (var i=start; i<end; i++) {
                prependTweet(streams.home[i]); 
             }
         }
         
-        function prependTweet(tweet) {
-            var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + '\n' + tweet.created_at + '\n\n');
-            $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
-            $tweet.prependTo($body);
-        }
 				
         setInterval(function () {
             displayStream(currentIndex, streams.home.length);  
@@ -33,8 +43,8 @@
 
       });
     
-    
-
     </script>
+    </div>
+      
   </body>
 </html>
