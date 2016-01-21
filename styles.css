@@ -2,22 +2,49 @@ body {
     background-color: #89cff0;
 }
 
-div {
+.tweet {
     background-color: white;
-    margin: 0.75% 2.5%;
-    width: 70%;
+    margin: 5px;
+    width: 100%;
     border-radius: 5px;
+    padding: 10px 0 10px 0;
+}
+
+.tweet button {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.tweet button:hover {
+    color: black;
+    text-decoration: underline;    
 }
 
 .header {
     background-color: #45b3e7;
     font-family: sans-serif;
-    width: 75%;
     text-align: center;
 }
 
-section {
-    float: left;
+.content {
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.homeTweets {
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+}
+
+.userTweets {
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
 }
 
 
